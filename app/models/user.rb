@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :password_expirable
+         :recoverable, :rememberable, :trackable, :validatable, :password_expirable, :password_archivable
   #  after_create :time
   #
   #  def time
@@ -13,16 +13,16 @@ class User < ActiveRecord::Base
     # ==> Security Extension
     # Configure security extension for devise
     # Should the password expire (e.g 3.months)
-    config.expire_password_after = 30.minutes
+    config.expire_password_after = 1.minute
 
     # Need 1 char of A-Z, a-z and 0-9
     # config.password_regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/
 
     # Number of old passwords in archive
-    # config.password_archiving_count = 5
+     config.password_archiving_count = 5
 
     # Deny old password (true, false, count)
-    # config.deny_old_passwords = true
+     config.deny_old_passwords = true
 
     # captcha integration for recover form
     # config.captcha_for_recover = true
